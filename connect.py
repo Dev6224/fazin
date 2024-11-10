@@ -39,6 +39,7 @@ def buyt():
     DB.commit()
     buy(item_no, quantity)
     get_last_record()
+    add_bill_review(
  
     print("\n")
     print("++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++")
@@ -64,10 +65,11 @@ def get_last_record():
         # Print the last record if it exists
         print(f"regno: {last_record[0]}, username: {last_record[1]}, item_no: {last_record[2]}, "
               f"sportevent: {last_record[3]}, quantity: {last_record[4]}, price: {last_record[5]}")
+        return(last_record[0])
     else:
         print("No records found.")
 
-
+        return None
 
 
 
