@@ -12,7 +12,7 @@ def tablesport():
     # Create the table
     create_table_query = """
     CREATE TABLE IF NOT EXISTS store (
-        regno INT PRIMARY KEY,
+        regno INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(15),
         item_no INT,
         sportevent VARCHAR(15),
