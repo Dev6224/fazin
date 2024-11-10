@@ -1,5 +1,5 @@
 import mysql.connector
-
+from fcsv import *
  DB = mysql.connector.connect(host="localhost", user="root", password="tiger")
 C = DB.cursor()
 
@@ -37,7 +37,10 @@ def buyt():
     """
     C.execute(insert_query, (item_no, sportitem, quantity, brand, price))
     DB.commit()
-
+    buy(item_no, quantity)
+    get_last_record()
+ 
+    print("\n")
     print("++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++")
 
 def delete():
@@ -47,7 +50,7 @@ def delete():
         DB.commit()
         print("All records deleted successfully!")
 
-def get_last_record(C):
+def get_last_record():
     # Query to fetch the last record by sorting by regno in descending order
     query = "SELECT * FROM store ORDER BY regno DESC LIMIT 1"
     
