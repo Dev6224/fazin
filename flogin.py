@@ -16,6 +16,7 @@ def sign_up(username, password, role):
     """Sign up a new user with username, password, and role"""
     if username in users:
         print("Username already taken.")
+                sign_up(username,password,role)
     else:
         users[username] = {'password': password, 'role': role}
         print(f"User '{username}' registered as {role}.")
