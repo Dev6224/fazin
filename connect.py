@@ -38,8 +38,8 @@ def buyt():
     C.execute(insert_query, (item_no, sportitem, quantity, brand, price))
     DB.commit()
     buy(item_no, quantity)
-    get_last_record()
-    add_bill_review(
+    m = get_last_record()
+    add_bill_review(m)
  
     print("\n")
     print("++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++")
