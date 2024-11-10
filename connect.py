@@ -44,7 +44,7 @@ def buyt():
     print("\n")
     print("++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++")
 
-def delete():
+def deleter():
     bb = input("Are you sure you want to delete all records? (Y/N): ").upper()
     if bb == "Y":
         C.execute("DELETE FROM store")
