@@ -27,3 +27,4 @@ def login(username, password):
        return(role)
     else:
         print("Invalid username or password.")
+        return None
