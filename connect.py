@@ -47,6 +47,27 @@ def delete():
         DB.commit()
         print("All records deleted successfully!")
 
+def get_last_record(C):
+    # Query to fetch the last record by sorting by regno in descending order
+    query = "SELECT * FROM store ORDER BY regno DESC LIMIT 1"
+    
+    # Execute the query
+    C.execute(query)
+    
+    # Fetch the result
+    last_record = C.fetchone()
+    
+    if last_record:
+        # Print the last record if it exists
+        print(f"regno: {last_record[0]}, username: {last_record[1]}, item_no: {last_record[2]}, "
+              f"sportevent: {last_record[3]}, quantity: {last_record[4]}, price: {last_record[5]}")
+    else:
+        print("No records found.")
+
+
+
+
+
 def listofitems():
     print("1 - Item No, 2 - Sport Item, 3 - Sport Event, 4 - Brand")
     k = int(input("Want to see products ordered by (1, 2, 3, 4): "))
