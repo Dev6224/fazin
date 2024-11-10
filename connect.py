@@ -1,60 +1,66 @@
-def connect():
-        import mysql.connector
-        DB=mysql.connector.connect(host="localhost",user="root",password="tiger")
-        C=DB.cursor()
+import mysql.connector
+
+ DB = mysql.connector.connect(host="localhost", user="root", password="tiger")
+C = DB.cursor()
+
 def database():
-        q="create database sportsstore"
-        C.execute(q)
-        qq="use sportsstore"
-        C.execute(qq)
+    # Create the database
+    C.execute("CREATE DATABASE IF NOT EXISTS sportsstore")
+    C.execute("USE sportsstore")
 
 def tablesport():
-        w= "create table store(regno int primary key, username varchar(15),  item_no int  , sportevent varchar(15) , quantity int , price int)"
-        C.execute(w)
-        
+    # Create the table
+    create_table_query = """
+    CREATE TABLE IF NOT EXISTS store (
+        regno INT PRIMARY KEY,
+        username VARCHAR(15),
+        item_no INT,
+        sportevent VARCHAR(15),
+        quantity INT,
+        price INT
+    )
+    """
+    C.execute(create_table_query)
+
 def buyt():
-        item_no=int(input("enter item if"))
-        sportitem=str(input("Enter sport item: "))
-        sportevent=str(input("sport event:"))
-        quantity=int(input("Enter quantity:"))
-        brand=str(input("Enter brand name:"))
-        price=int(input("Enter the price:"))
-        C.execute("INSERT INTO store({},'{}','{}',{},'{}',{})".format(sportitem,sportevent,quantity,brand,price))
-        DB.commit()
-        print("""++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++""")
+    item_no = int(input("Enter item ID: "))
+    sportitem = input("Enter sport item: ")
+    sportevent = input("Enter sport event: ")
+    quantity = int(input("Enter quantity: "))
+    brand = input("Enter brand name: ")
+    price = int(input("Enter the price: "))
+
+    # Insert the data into the table using placeholders
+    insert_query = """
+    INSERT INTO store (item_no, sportevent, quantity, username, price) 
+    VALUES (%s, %s, %s, %s, %s)
+    """
+    C.execute(insert_query, (item_no, sportitem, quantity, brand, price))
+    DB.commit()
+
+    print("++++++++++++++++++++++++SUCCESSFULLY ADDED++++++++++++++++++++++++")
+
 def delete():
-        bb=input("Are you sure(Y/N):").upper()
-        if bb=="Y":
-                C.execute("delete from sell_rec")
+    bb = input("Are you sure you want to delete all records? (Y/N): ").upper()
+    if bb == "Y":
+        C.execute("DELETE FROM store")
         DB.commit()
+        print("All records deleted successfully!")
+
 def listofitems():
-        print("1-item no , 2-sport item , 3-sportevent , 4-brand")
-        k=input("want to see products order by(1,2,3,4)")
-        if k==1:
-                C.execute("select * from store order by item_no")
-        elif k==2:
-                C.execute("select * from store order by sportitem")
-        elif k==3:
-                C.execute("select * from store order by sportevent")
-        elif k==4:
-                C.execute("select * from store order by brand")
+    print("1 - Item No, 2 - Sport Item, 3 - Sport Event, 4 - Brand")
+    k = int(input("Want to see products ordered by (1, 2, 3, 4): "))
 
-def mgmt( ):
-        print(" 1. Add New Product")
-        print(" 2. List Product")
-        print(" 3. Update Product")
-        print(" 4. Delete Product")
-        print(" 5. Back (Main Menu)")
-        p=int (input("Enter Your Choice :"))
-        if p==1:
-                ADD()
-        if p==2:
-                listofitems()
-        if p==3:
-                update_product()
-        if p==4:
-                delete()
-        if p== 5 :
-            pass
+    if k == 1:
+        C.execute("SELECT * FROM store ORDER BY item_no")
+    elif k == 2:
+        C.execute("SELECT * FROM store ORDER BY sportevent")
+    elif k == 3:
+        C.execute("SELECT * FROM store ORDER BY sportevent")
+    elif k == 4:
+        C.execute("SELECT * FROM store ORDER BY username")
 
-mgmt()
+    results = C.fetchall()
+    for row in results:
+        print(row)
+database()
