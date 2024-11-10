@@ -99,20 +99,7 @@ def deleteitem():
     
     input("Press any key to continue..")
 
-def search():
-    print("Search a Record")
-    print("===================")
-    f=open('sports.csv','r',newline='\r\n') 
-    r=input('Enter itemno you want to search')
-    s=csv.reader(f)
-    for rec in s:
-        if rec[0]==r:
-            print("itemno=",rec[0])
-            print("sportitem=",rec[1])
-            print("quanitity=",rec[2])
-            print("price=",rec[3])
-    f.close()
-    input("Press any key to continue..")
+
 def viewall():
     print("List of All Records")
     print("===================")
@@ -127,31 +114,3 @@ def viewall():
         i+=1
     f.close()
     input("Press any key to continue..")
-
-def mainmenu():
-    choice=0
-    while choice!=6:
-        print("\n")
-        print("Main Menu")
-        print("==========")
-        print("1. Add a new item")
-        print("2. Modify Existing item")
-        print("3. Delete Existing item")
-        print("4. Search a item")
-        print("5. List all item")
-        print("6.Exit")
-        choice=int(input('Enter your choice'))
-        if choice==1:
-            additem()
-        elif choice==2:
-            modifyitem()
-        elif choice==3:
-            deleteitem()
-        elif choice==4:
-            search()
-        elif choice==5:
-            viewall()
-        elif choice==6:
-            print("Software Terminated")
-            break
-mainmenu()
