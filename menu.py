@@ -33,7 +33,7 @@ while True:
         print("Exiting")
         break
     if m[2]  == "employee":
-      print("1.deleting saleshistory \nview bill reviews \nadd item \
+      print("1.Sales History \n 2.Review System \n 3.User system
     
   
   
