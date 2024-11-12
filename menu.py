@@ -33,31 +33,27 @@ while True:
         print("Exiting")
         break
     if m[2]  == "employee":
-      print("1.Sales History \n 2.Review System \n 3.User system")
+      print("1.Sales History \n 2.Review System \n 3.Supplier system \n 4. Items 5. Exit ")
 				z = int(input())
 				if z == 1:
 					print("\n==== Sports Store Management Menu ====")
-        print("1. Create Database and Table")
-        print("2. Add a New Purchase")
-        print("3. Delete All Records")
-        print("4. List All Items")
-        print("5. Show Last Record")
-        print("6. Exit")
-        choice = input("Enter your choice (1-6): ")
+        print("1. Add a New Purchase")
+        print("2. Delete All Records")
+        print("3. List All Items")
+        print("4. Show Last Record")
+        print("5. Exit")
+        choice = input("Enter your choice (1-5): ")
 
-        if choice == '1':
-            database()
-            tablesport()
-            print("Database and table setup completed.")
-        elif choice == '2':
+       
+        iff choice == '1':
             buyt()
-        elif choice == '3':
+        elif choice == '2':
             deleter()
-        elif choice == '4':
+        elif choice == '3':
             listofitems()
-        elif choice == '5':
+        elif choice == '4':
             get_last_record()
-        elif choice == '6':
+        elif choice == '5':
             print("Exiting the program.")
             break
         else:
@@ -79,7 +75,8 @@ while True:
             	break
         	else:
             	print("Invalid choice. Please try again.")
-					elif z == 3
+					elif z == 3:
+							supplier_menu()
 
 
    	
