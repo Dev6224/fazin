@@ -33,7 +33,10 @@ while True:
         print("Exiting")
         break
     if m[2]  == "employee":
-      print("1.Sales History \n 2.Review System \n 3.User system
+      print("1.Sales History \n 2.Review System \n 3.User system")
+				z = int(input())
+				if z == 1:
+						
     
   
   
