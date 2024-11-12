@@ -36,6 +36,36 @@ while True:
       print("1.Sales History \n 2.Review System \n 3.User system")
 				z = int(input())
 				if z == 1:
+					print("\n==== Sports Store Management Menu ====")
+        print("1. Create Database and Table")
+        print("2. Add a New Purchase")
+        print("3. Delete All Records")
+        print("4. List All Items")
+        print("5. Show Last Record")
+        print("6. Exit")
+        choice = input("Enter your choice (1-6): ")
+
+        if choice == '1':
+            database()
+            tablesport()
+            print("Database and table setup completed.")
+        elif choice == '2':
+            buyt()
+        elif choice == '3':
+            deleter()
+        elif choice == '4':
+            listofitems()
+        elif choice == '5':
+            get_last_record()
+        elif choice == '6':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+				elif z == 2:
+					
+
+   	
 						
     
   
