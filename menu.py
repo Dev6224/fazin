@@ -105,6 +105,9 @@ while True:
             		break
         		else:
             		print("Invalid choice. Please try again.")
+					elif z ==5:
+								print("Exiting")
+								break
 
 
    	
