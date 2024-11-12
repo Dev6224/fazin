@@ -77,6 +77,34 @@ while True:
             	print("Invalid choice. Please try again.")
 					elif z == 3:
 							supplier_menu()
+					elif z ==4:
+								while True:
+        		print("\n==== Sports Inventory Management Menu ====")
+        		print("1. Add a New Item")
+        		print("2. Modify an Item")
+        		print("3. Delete an Item")
+        		print("4. View All Items")
+        		print("5. Buy an Item")
+        		print("6. Exit")
+        		choice = input("Enter your choice (1-6): ")
+
+        		if choice == '1':
+            		additem()
+        		elif choice == '2':
+            		modifyitem()
+        		elif choice == '3':
+            		deleteitem()
+        		elif choice == '4':
+            		viewall()
+        		elif choice == '5':
+            		item_id = input("Enter item ID to buy: ")
+            		quantity = int(input("Enter quantity to buy: "))
+            		buy(item_id, quantity)
+        		elif choice == '6':
+            		print("Exiting the program.")
+            		break
+        		else:
+            		print("Invalid choice. Please try again.")
 
 
    	
