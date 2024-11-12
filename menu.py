@@ -63,7 +63,24 @@ while True:
         else:
             print("Invalid choice. Please try again.")
 				elif z == 2:
-					
+					while True:
+        	print("\n==== Bills and Reviews Management Menu ====")
+        	print("1. Add a Bill and Review")
+        	print("2. Display All Bills and Reviews")
+        	print("3. Exit")
+        	choice = input("Enter your choice (1-3): ")
+
+        	if choice == '1':
+            	add_bill_review()
+        	elif choice == '2':
+            	display_bills_reviews()
+        	elif choice == '3':
+            	print("Exiting the program.")
+            	break
+        	else:
+            	print("Invalid choice. Please try again.")
+					elif z == 3
+
 
    	
 						
